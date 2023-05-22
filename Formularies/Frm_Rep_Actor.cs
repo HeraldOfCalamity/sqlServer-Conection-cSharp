@@ -8,14 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Cinema.Formularies
 {
     public partial class Frm_Rep_Actor : Frm_Rep
     {
+        Classes.Actor toUpdate;
         public Frm_Rep_Actor()
         {
             InitializeComponent();
             cnx = new();
+            toUpdate = new();
+        }
+        protected override int GetId()
+        {
+            return Convert.ToInt32(nud_id.Value);
         }
         protected override void Mostrar()
         {
@@ -87,6 +94,18 @@ namespace Cinema.Formularies
                 error += "\n Invalid Gender";
             return error;
         }
+        protected override void Actualizar(int id)
+        {
+            DataTable table = cnx.buscar_actor(id);
+            toUpdate.Name = txt_up_name.Text;
+            toUpdate.LastName = txt_up_last.Text;
+            toUpdate.Date = dtp_up_birth.Value.Date;
+
+            if (txt_up_name.Text.Trim().Length > 3 && txt_up_last.Text.Trim().Length > 3)
+                cnx.actualizar(toUpdate);
+            else
+                MessageBox.Show("Invalid Fieldas", "Error");
+        }
         private void btn_submit_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(Query());
@@ -116,7 +135,7 @@ namespace Cinema.Formularies
             cmb_gender.Enabled = chb_gender.Checked;
             if (!cmb_gender.Enabled) cmb_gender.Text = "";
         }
-
+        
         private void btn_verify_Click(object sender, EventArgs e)
         {
             try
@@ -127,12 +146,15 @@ namespace Cinema.Formularies
                     MessageBox.Show("Actor con codigo " + nud_id.Value + " no encontrado");
                     return;
                 }
+                toUpdate.Id = Convert.ToInt32(table.Rows[0].ItemArray[0]);
+                toUpdate.Name = txt_up_name.Text = table.Rows[0].ItemArray[1].ToString();
+                toUpdate.LastName = txt_up_last.Text = table.Rows[0].ItemArray[2].ToString();
+                toUpdate.Gender = Convert.ToChar(table.Rows[0].ItemArray[3]);
+                toUpdate.Date = dtp_up_birth.Value = Convert.ToDateTime(table.Rows[0].ItemArray[4]);
 
-                txt_up_name.Text = table.Rows[0].ItemArray[1].ToString();
-                txt_up_last.Text = table.Rows[0].ItemArray[2].ToString();
-                dtp_up_birth.Value = Convert.ToDateTime(table.Rows[0].ItemArray[4]);
-
-
+                txt_up_name.Enabled = true;
+                txt_up_last.Enabled = true;
+                dtp_up_birth.Enabled = true;
             }
             catch(Exception ex)
             {

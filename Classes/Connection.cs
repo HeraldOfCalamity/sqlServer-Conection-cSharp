@@ -97,7 +97,7 @@ namespace Cinema.Classes
             string respuesta;
             cmd = new SqlCommand();
             cmd.Connection = openConnection();
-            cmd.CommandText = "actualizar_actor";//nombre del procedimeinto creado en sql 
+            cmd.CommandText = "sql_actualizar_actor";//nombre del procedimeinto creado en sql 
             cmd.CommandType = CommandType.StoredProcedure;
             //parametros 
             cmd.Parameters.AddWithValue("@id", actor.Id);

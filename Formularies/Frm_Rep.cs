@@ -103,7 +103,7 @@ namespace Cinema.Formularies
             }
         }
 
-        private void btn_submit_update_Click(object sender, EventArgs e)
+        protected void btn_submit_update_Click(object sender, EventArgs e)
         {
             try
             {

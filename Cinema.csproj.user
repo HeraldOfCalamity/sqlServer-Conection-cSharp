@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Formularies\Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularies\Frm_Reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularies\Frm_Reg_Actor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularies\Frm_Rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularies\Frm_Rep_Actor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

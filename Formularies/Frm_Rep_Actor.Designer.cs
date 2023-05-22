@@ -34,9 +34,11 @@
             chb_lst = new CheckBox();
             chb_gender = new CheckBox();
             cmb_gender = new ComboBox();
+            numericUpDown1 = new NumericUpDown();
             groupBox1.SuspendLayout();
             grp_parameters.SuspendLayout();
             grp_up_fields.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // grp_parameters
@@ -55,6 +57,13 @@
             grp_parameters.Controls.SetChildIndex(txt_name, 0);
             grp_parameters.Controls.SetChildIndex(btn_update, 0);
             grp_parameters.Controls.SetChildIndex(btn_submit, 0);
+            // 
+            // grp_up_fields
+            // 
+            grp_up_fields.Controls.Add(numericUpDown1);
+            grp_up_fields.Controls.SetChildIndex(btn_submit_update, 0);
+            grp_up_fields.Controls.SetChildIndex(btn_cancel_update, 0);
+            grp_up_fields.Controls.SetChildIndex(numericUpDown1, 0);
             // 
             // txt_name
             // 
@@ -113,6 +122,13 @@
             cmb_gender.Size = new Size(78, 23);
             cmb_gender.TabIndex = 0;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(20, 22);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 2;
+            // 
             // Frm_Rep_Actor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -122,6 +138,7 @@
             grp_parameters.ResumeLayout(false);
             grp_parameters.PerformLayout();
             grp_up_fields.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -133,5 +150,6 @@
         private TextBox txt_name;
         private ComboBox cmb_gender;
         private CheckBox chb_gender;
+        private NumericUpDown numericUpDown1;
     }
 }

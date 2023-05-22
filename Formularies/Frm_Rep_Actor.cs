@@ -116,5 +116,29 @@ namespace Cinema.Formularies
             cmb_gender.Enabled = chb_gender.Checked;
             if (!cmb_gender.Enabled) cmb_gender.Text = "";
         }
+
+        private void btn_verify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable table = cnx.buscar_actor(Convert.ToInt32(nud_id.Value));
+                if (table.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actor con codigo " + nud_id.Value + " no encontrado");
+                    return;
+                }
+
+                txt_up_name.Text = table.Rows[0].ItemArray[1].ToString();
+                txt_up_last.Text = table.Rows[0].ItemArray[2].ToString();
+                dtp_up_birth.Value = Convert.ToDateTime(table.Rows[0].ItemArray[4]);
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
     }
 }

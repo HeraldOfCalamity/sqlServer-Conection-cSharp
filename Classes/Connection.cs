@@ -102,7 +102,8 @@ namespace Cinema.Classes
             //parametros 
             cmd.Parameters.AddWithValue("@id", actor.Id);
             cmd.Parameters.AddWithValue("@name", actor.Name);
-            cmd.Parameters.AddWithValue("@ap", actor.LastName);
+            cmd.Parameters.AddWithValue("@last", actor.LastName);
+            cmd.Parameters.AddWithValue("@date", actor.Date);
             try
             {
                 respuesta = cmd.ExecuteNonQuery() == 1 ? " Actor actualizado " : " Error en la actualizacion ";

@@ -108,6 +108,7 @@ namespace Cinema.Formularies
             try
             {
                 Actualizar(GetId());
+                Mostrar();
             }
             catch (Exception ex)
             {

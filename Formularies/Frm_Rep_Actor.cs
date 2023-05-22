@@ -102,7 +102,7 @@ namespace Cinema.Formularies
             toUpdate.Date = dtp_up_birth.Value.Date;
 
             if (txt_up_name.Text.Trim().Length > 3 && txt_up_last.Text.Trim().Length > 3)
-                cnx.actualizar(toUpdate);
+                MessageBox.Show(cnx.actualizar(toUpdate));
             else
                 MessageBox.Show("Invalid Fieldas", "Error");
         }

@@ -135,7 +135,7 @@ namespace Cinema.Formularies
             cmb_gender.Enabled = chb_gender.Checked;
             if (!cmb_gender.Enabled) cmb_gender.Text = "";
         }
-        
+
         private void btn_verify_Click(object sender, EventArgs e)
         {
             try
@@ -156,11 +156,11 @@ namespace Cinema.Formularies
                 txt_up_last.Enabled = true;
                 dtp_up_birth.Enabled = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
     }
 }

@@ -43,6 +43,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            btn_delete = new Button();
             groupBox1.SuspendLayout();
             grp_parameters.SuspendLayout();
             grp_up_fields.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // grp_up_fields
             // 
+            grp_up_fields.Controls.Add(btn_delete);
             grp_up_fields.Controls.Add(label4);
             grp_up_fields.Controls.Add(label3);
             grp_up_fields.Controls.Add(label2);
@@ -88,6 +90,7 @@
             grp_up_fields.Controls.SetChildIndex(label2, 0);
             grp_up_fields.Controls.SetChildIndex(label3, 0);
             grp_up_fields.Controls.SetChildIndex(label4, 0);
+            grp_up_fields.Controls.SetChildIndex(btn_delete, 0);
             // 
             // txt_name
             // 
@@ -194,7 +197,7 @@
             // 
             dtp_up_birth.Enabled = false;
             dtp_up_birth.Format = DateTimePickerFormat.Short;
-            dtp_up_birth.Location = new Point(50, 233);
+            dtp_up_birth.Location = new Point(45, 221);
             dtp_up_birth.Name = "dtp_up_birth";
             dtp_up_birth.Size = new Size(81, 23);
             dtp_up_birth.TabIndex = 7;
@@ -220,11 +223,20 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(50, 215);
+            label4.Location = new Point(45, 203);
             label4.Name = "label4";
             label4.Size = new Size(119, 15);
             label4.TabIndex = 10;
             label4.Text = "Fecha de Nacimiento";
+            // 
+            // btn_delete
+            // 
+            btn_delete.Location = new Point(6, 268);
+            btn_delete.Name = "btn_delete";
+            btn_delete.Size = new Size(188, 23);
+            btn_delete.TabIndex = 11;
+            btn_delete.Text = "Eliminar";
+            btn_delete.UseVisualStyleBackColor = true;
             // 
             // Frm_Rep_Actor
             // 
@@ -257,5 +269,6 @@
         private DateTimePicker dtp_up_birth;
         private TextBox txt_up_last;
         private TextBox txt_up_name;
+        private Button btn_delete;
     }
 }

@@ -64,7 +64,6 @@ namespace Cinema.Classes
             data.Fill(table);
             return table;
         }
-
         public string insertar_actor(Actor actor)
         {
             string respuesta;
@@ -119,6 +118,26 @@ namespace Cinema.Classes
             }
             return respuesta;
         }
+        public string eliminar_actor(int id)
+        {
+            string respuesta;
+            cmd = new SqlCommand("sql_eliminar_actor", openConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                respuesta = cmd.ExecuteNonQuery() == 1 ? " Actor eliminado " : " Error al eliminar ";
+            }
+            catch(Exception ex)
+            {
+                respuesta = ex.Message
+            }
+            finally
+            {
+                closeConnection();
+            }
+            return respuesta;
+        }
     }
 }

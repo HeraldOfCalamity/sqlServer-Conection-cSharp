@@ -155,12 +155,31 @@ namespace Cinema.Formularies
                 txt_up_name.Enabled = true;
                 txt_up_last.Enabled = true;
                 dtp_up_birth.Enabled = true;
+                btn_delete.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult dres = MessageBox.Show(
+                "Esta seguro de elimiar el actor con id " + nud_id.Value.ToString() + "? ",
+                "Confirme",
+                MessageBoxButtons.YesNo
+                );
+
+            if (dres == DialogResult.Yes)
+            {
+                MessageBox.Show(cnx.eliminar_actor(Convert.ToInt32(nud_id.Value)));
+                Mostrar();
+                txt_up_last.Clear();
+                txt_up_name.Clear();
+                dtp_up_birth.Value = DateTime.Now;
+            }
         }
     }
 }

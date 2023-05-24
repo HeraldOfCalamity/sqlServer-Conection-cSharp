@@ -131,7 +131,7 @@ namespace Cinema.Classes
             }
             catch(Exception ex)
             {
-                respuesta = ex.Message
+                respuesta = ex.Message;
             }
             finally
             {

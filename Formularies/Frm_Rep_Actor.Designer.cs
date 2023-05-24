@@ -231,12 +231,14 @@
             // 
             // btn_delete
             // 
+            btn_delete.Enabled = false;
             btn_delete.Location = new Point(6, 268);
             btn_delete.Name = "btn_delete";
             btn_delete.Size = new Size(188, 23);
             btn_delete.TabIndex = 11;
             btn_delete.Text = "Eliminar";
             btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.Click += btn_delete_Click;
             // 
             // Frm_Rep_Actor
             // 
